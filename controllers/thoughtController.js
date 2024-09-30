@@ -1,4 +1,3 @@
-const { validateHeaderName } = require("http");
 const { Thought, User } = require("../models");
 
 const getAllThoughts = async (req, res) => {

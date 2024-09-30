@@ -1,6 +1,5 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const db = require("./config/connection");
+const connectionDB = require("./config/connection");
 const routes = require("./routes");
 
 const app = express();
@@ -11,8 +10,15 @@ app.use(express.json());
 
 app.use(routes);
 
-db.once("open", () => {
-  app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`);
-  });
-});
+const startServer = async ()=>{
+  try{
+    await connectionDB();
+    app.listen(PORT,()=>{
+      console.log(`Listening on port ${PORT}`);
+    });
+  } catch (err) {
+    console.error("Failed to connect to database", err)
+    process.exit(1);
+  }
+};
+startServer();
