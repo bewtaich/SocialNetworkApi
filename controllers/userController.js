@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Thought } = require("../models");
 
 const getAllUsers = async (req, res) => {
   try {
@@ -11,6 +11,7 @@ const getAllUsers = async (req, res) => {
 
 const getUserById = async (req, res) => {
   try {
+    console.log(req.params.id)
     const user = await User.findById(req.params.id)
       .populate("thoughts")
       .populate("friends");
@@ -19,6 +20,7 @@ const getUserById = async (req, res) => {
     }
     res.json(user);
   } catch (err) {
+    console.error("Error",err)
     res.status(500).json(err);
   }
 };

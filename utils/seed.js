@@ -5,23 +5,23 @@ const connectionDB = require('../config/connection');
 
 const users = [
     {
-      username: 'lernantino',
-      email: 'lernantino@gmail.com',
+      username: 'brian',
+      email: 'brian@gmail.com',
     },
     {
-      username: 'johnDoe',
-      email: 'john.doe@example.com',
+      username: 'john',
+      email: 'john@example.com',
     },
   ];
 
   const thoughts = [
     {
-      thoughtText: 'Here is a cool thought from lernantino.',
-      username: 'lernantino',
+      thoughtText: 'Here is a cool thought from brian.',
+      username: 'brian',
     },
     {
-      thoughtText: 'John Doe shares a thoughtful message.',
-      username: 'johnDoe',
+      thoughtText: 'John shares a thought.',
+      username: 'john',
     },
   ];
 
